@@ -1,0 +1,60 @@
+doctype html
+head
+  title
+    | Sign-In
+  style.
+    body {
+    background-image: url('lineupofcars.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 40%;
+    }
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+h2(style='color: silver') Sign-in:
+div
+  | Please provide us with your email and password. Then tell us if you are a staff member or not.
+br
+meta(name='viewport' content='width=100%, initial-scale=1')
+style.
+  body {font-family: Arial;}
+  /* Style the tab */
+|        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: 
+input(name='email')
+br
+br
+|     Password: 
+input(name='password')
+br
+br
+|  Are you a staff member? 
+input#staffYes(type='radio' name='staffQuestion' value='yes')
+label(for='staffYes')  Yes
+input#staffNo(type='radio' name='staffQuestion' value='no')
+label(for='staffNo')  No
+form(method='POST')
+  br
+  button(onclick='sign_in()')
+    | Sign in

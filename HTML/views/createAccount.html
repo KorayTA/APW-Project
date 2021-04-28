@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <title>Create-An-Account</title>
+  <style>
+    body {
+    background-image: url('lineOfCars.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 40%;
+    }
+  </style>
+</head><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2 style="color: silver">Create-Account:</h2>
+<div style="color: silver">Please fill out the boxes below.</div><br>
+<meta name="viewport" content="width=100%, initial-scale=1">
+<style>
+  body {font-family: Arial;}
+  /* Style the tab */
+</style>
+<form action="/new" method="POST">First Name: 
+  <input name="firstName"><br><br>    Last Name: 
+  <input name="lastName"><br><br>       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: 
+  <input name="email"><br><br>    &nbsp;Password: 
+  <input name="password"><br><br><br>
+  <button onclick="create_account()">Create
+    <script>
+      var tracker = require('./app.js')
+      //function to send and get information to and from the server
+      function create_account(req, res)
+      {
+      }
+      module.export(create_account)
+    </script>
+  </button>
+</form>
