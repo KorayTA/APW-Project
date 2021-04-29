@@ -22,7 +22,7 @@ app.get('/CreateAccount', function(req, res) {
         title: 'APW Dealership',
         title1: 'Find your dream-car with us!',
         title3: 'Create-Account:',
-        title4: 'Please fill out the boxes below with your information.'
+        title4: 'Please fill out the boxes below.'
     });
 });
 
