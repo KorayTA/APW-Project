@@ -1,123 +1,122 @@
 doctype html
-head
-  title
-    | Create-A-Car
+html
+  head
+    title
+      | Create-A-Car
+    style.
+      body {
+      background-image: url('lineOfCars2.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 40%;
+      }
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  h2(style='color: silver') Create-A-Car:
+  div(style='color: silver')
+    | Below you will find a series of options that will help us find the perfect car for you.
+    br
+    | If there is an option that you are unsure of, leave it blank! We will provide examples
+    br
+    | based on the other information that you have given us.
+  br
+  meta(name='viewport' content='width=100%, initial-scale=1')
   style.
-    body {
-    background-image: url('lineOfCars2.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 40%;
-    }
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-h2(style='color: silver') Create-A-Car:
-div(style='color: silver')
-  | Below you will find a series of options that will help us find the perfect car for you.
-  br
-  | If there is an option that you are unsure of, leave it blank! We will provide examples
-  br
-  | based on the other information that you have given us.
-br
-meta(name='viewport' content='width=100%, initial-scale=1')
-style.
-  body {font-family: Arial;}
-  /* Style the tab */
-#createACar.tabcontent
-  form
-    br
-    |     Car brand:
-    select(name='brand')
-      option(value='1')  None
-      option(value='2')  Ford
-      option(value='3')  BMW
-      option(value='4')  Toyoda
-      option(value='5')  Lincoln
-      option(value='6')  Subaru
-    br
-    br
-    |     Type:
-    select(name='type')
-      option(value='1')  None
-      option(value='2')  Sedan
-      option(value='3')  Van
-      option(value='4')  Truck
-      option(value='5')  Convertable
-      option(value='6')  Coupe
-    br
-    br
-    fieldset
-      legend  Package
-      input#packageStandard(type='radio' name='package' value='standard')
-      label(for='packageStandard')  Standard
+    body {font-family: Arial;}
+    /* Style the tab */
+  #createACar.tabcontent
+    form
       br
-      input#packageSport(type='radio' name='package' value='sport')
-      label(for='packageSport')  Sport
+      |     Car brand:
+      select(name='brand')
+        option(value='1')  None
+        option(value='2')  Ford
+        option(value='3')  BMW
+        option(value='4')  Toyoda
+        option(value='5')  Lincoln
+        option(value='6')  Subaru
       br
-      input#packageLimited(type='radio' name='package' value='limited')
-      label(for='packageLimited')  Limited
       br
-    br
-    |     Interior color:
-    select(name='intColor')
-      option(value='1')  None
-      option(value='2')  Red
-      option(value='3')  Orange
-      option(value='4')  Yellow
-      option(value='5')  Green
-      option(value='6')  Blue
-      option(value='7')  Purple
-      option(value='8')  Black
-      option(value='9')  White
-      option(value='10')  Pink
-      option(value='11')  Silver
-      option(value='12')  Brown
-      option(value='13')  Gold
-      option(value='14')  Tan
-    br
-    br
-    |     Exterior color:
-    select(name='extColor')
-      option(value='1')  None
-      option(value='2')  Red
-      option(value='3')  Orange
-      option(value='4')  Yellow
-      option(value='5')  Green
-      option(value='6')  Blue
-      option(value='7')  Purple
-      option(value='8')  Black
-      option(value='9')  White
-      option(value='10')  Pink
-      option(value='11')  Silver
-      option(value='12')  Brown
-      option(value='13')  Gold
-      option(value='14')  Tan
-    br
-    br
-    |     Your starting price: 
-    input(type='number' name='startPrice' min='5000' max='100000' step='1')
-    br
-    br
-    button(onclick='car_create()')
-      | Create
-      script.
-        var tracker = require('./index.js')
+      |     Type:
+      select(name='type')
+        option(value='1')  None
+        option(value='2')  Sedan
+        option(value='3')  Van
+        option(value='4')  Truck
+        option(value='5')  Convertable
+        option(value='6')  Coupe
+      br
+      br
+      fieldset
+        legend  Package
+        input#packageStandard(type='radio' name='package' value='standard')
+        label(for='packageStandard')  Standard
+        br
+        input#packageSport(type='radio' name='package' value='sport')
+        label(for='packageSport')  Sport
+        br
+        input#packageLimited(type='radio' name='package' value='limited')
+        label(for='packageLimited')  Limited
+        br
+      br
+      |     Interior color:
+      select(name='intColor')
+        option(value='1')  None
+        option(value='2')  Red
+        option(value='3')  Orange
+        option(value='4')  Yellow
+        option(value='5')  Green
+        option(value='6')  Blue
+        option(value='7')  Purple
+        option(value='8')  Black
+        option(value='9')  White
+        option(value='10')  Pink
+        option(value='11')  Silver
+        option(value='12')  Brown
+        option(value='13')  Gold
+        option(value='14')  Tan
+      br
+      br
+      |     Exterior color:
+      select(name='extColor')
+        option(value='1')  None
+        option(value='2')  Red
+        option(value='3')  Orange
+        option(value='4')  Yellow
+        option(value='5')  Green
+        option(value='6')  Blue
+        option(value='7')  Purple
+        option(value='8')  Black
+        option(value='9')  White
+        option(value='10')  Pink
+        option(value='11')  Silver
+        option(value='12')  Brown
+        option(value='13')  Gold
+        option(value='14')  Tan
+      br
+      br
+      |     Your starting price: 
+      input(type='number' name='startPrice' min='5000' max='100000' step='1')
+      br
+      br
+      button(onclick='car_create()')
+        | Create

@@ -1,70 +1,71 @@
 doctype html
-head
-  title
-    | Create-An-Account
-  style.
-    body {
-    background-image: url('lineOfCars.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 40%;
-    }
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-h2(style='color: silver') Create-Account:
-div(style='color: silver')
-  | Please fill out the boxes below.
-br
-meta(name='viewport' content='width=100%, initial-scale=1')
-style.
-  body {font-family: Arial;}
-  /* Style the tab */
-form(action='/new' method='POST')
-  | First Name: 
-  input(name='firstName')
-  br
-  br
-  |     Last Name: 
-  input(name='lastName')
-  br
-  br
-  |        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: 
-  input(name='email')
-  br
-  br
-  |     &nbsp;Password: 
-  input(name='password')
-  br
-  br
-  br
-  button(onclick='create_account()')
-    | Create
-    script.
-      var tracker = require('./app.js')
-      //function to send and get information to and from the server
-      function create_account(req, res)
-      {
+html
+  head
+    title
+      | Create-An-Account
+    style.
+      body {
+      background-image: url('lineOfCars.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 40%;
       }
-      module.export(create_account)
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  br
+  h2(style='color: silver') Create-Account:
+  div(style='color: silver')
+    | Please fill out the boxes below.
+  br
+  meta(name='viewport' content='width=100%, initial-scale=1')
+  style.
+    body {font-family: Arial;}
+    /* Style the tab */
+  form(action='/new' method='POST')
+    | First Name: 
+    input(name='firstName')
+    br
+    br
+    |     Last Name: 
+    input(name='lastName')
+    br
+    br
+    |        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: 
+    input(name='email')
+    br
+    br
+    |     &nbsp;Password: 
+    input(name='password')
+    br
+    br
+    br
+    button(onclick='create_account()')
+      | Create
+      script.
+        var tracker = require('./app.js')
+        //function to send and get information to and from the server
+        function create_account(req, res)
+        {
+        }
+        module.export(create_account)

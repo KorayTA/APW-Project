@@ -10,9 +10,21 @@ app.set('view engine', 'pug');
 
 //Home Route
 app.get('/', function(req,res) {
-res.render('Create-A-Car');
+res.render('Website');
 });
 
+//Add routes
+app.get('/CreateAccount', function(req, res) {
+    res.render('createAccount')
+})
+
+app.get('/Sign-In', function(req, res) {
+    res.render('Sign-in')
+})
+
+app.get('/Create-A-Car', function(req, res) {
+    res.render('Create-A-Car')
+})
 
 //Start server
 app.listen(3000, function() {
