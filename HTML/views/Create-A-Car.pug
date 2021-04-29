@@ -1,28 +1,9 @@
-doctype html
-html
-  head
-    title
-      | Create-A-Car
-    style.
-      body {
-      background-image: url('lineOfCars2.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: 100% 40%;
-      }
-  h2(style='color: silver') Create-A-Car:
-  div(style='color: silver')
-    | Below you will find a series of options that will help us find the perfect car for you.
-    br
-    | If there is an option that you are unsure of, leave it blank! We will provide examples
-    br
-    | based on the other information that you have given us.
-  br
-  meta(name='viewport' content='width=100%, initial-scale=1')
-  style.
-    body {font-family: Arial;}
-    /* Style the tab */
-  #createACar.tabcontent
+extends Website 
+
+block content
+  h2 #{title3}
+  h3 #{title4} #{title5} #{title6}
+  
     form
       br
       |     Car brand:

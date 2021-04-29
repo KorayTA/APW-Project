@@ -2,11 +2,11 @@ doctype html
 html
   head
     title 
-      | Home
+      | Final Project
     img(src="/images/carDealership2.jpg")
 
-    h1 APW Dealership
-    h2 Find your dream-car with us!
+    h1 #{title}
+    h2 #{title1}
   br
   br
   meta(name='viewport' content='width=100%, initial-scale=1')
@@ -44,9 +44,16 @@ html
     border: 1px solid #ccc;
     border-top: none;
     }
-  .tab
+    
+  .tab 
     a(href = '/Sign-in') Sign-in           
     a(href = '/createAccount') Create an account        
     a(href = '/Create-A-Car') Create-A-Car        
+    
+block content
+  br
+  hr
+  footer
+      p Copyright &copy; 2021
     
   
