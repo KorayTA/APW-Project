@@ -8,30 +8,17 @@ block content
   style.
     body {font-family: Arial;}
     /* Style the tab */
-  form(action='/new' method='POST')
-    | First Name: 
-    input(name='firstName')
-    br
-    br
-    |     Last Name: 
-    input(name='lastName')
-    br
-    br
-    |        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: 
-    input(name='email')
-    br
-    br
-    |     &nbsp;Password: 
-    input(name='password')
-    br
-    br
-    br
-    button(onclick='create_account()')
-      | Create
-      script.
-        var tracker = require('./app.js')
-        //function to send and get information to and from the server
-        function create_account(req, res)
-        {
-        }
-        module.export(create_account)
+  form(method='POST', action='/createAccount')
+    #form-group
+      label FirstName:
+      input.form-control(name = 'FirstName', type = 'text')
+    #form-group 
+      label LastName: 
+      input.form-control(name = 'LastName', type = 'text')
+    #form-group 
+      label Email: 
+      input.form-control(name = 'Email', type = 'text')
+    #form-group 
+      label Password 
+      input.form-control(name = 'Password', type = 'text')
+    input.btn.btn-primary(type='submit',value='Submit')
