@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
 let db = mongoose.connection;
@@ -22,7 +23,6 @@ const app = express();
 
 //use models
 let User = require('./models/users');
-const bodyParser = require('body-parser');
 
 //Loading view Engine
 app.set('views', path.join(__dirname, 'views')); 
@@ -79,10 +79,24 @@ app.get('/Create-A-Car', function(req, res) {
 });
 
 app.post('/createAccount', function(req, res){
-    console.log(req.body.FirstName);
-    console.log(req.body.LastName);
-    console.log(req.body.Email);
-    console.log(req.body.Password);
+    let user = new User();
+    user.FirstName = req.body.FirstName;
+    user.LastName = req.body.LastName;
+    user.Email = req.body.Email;
+    user.Password = req.body.Password;
+
+    user.save(function(err){
+        if(err){
+            console.log(err);
+            return;
+        }else{
+            console.log(req.body.FirstName);
+            console.log(req.body.LastName);
+            console.log(req.body.Email);
+            console.log(req.body.Password);
+        }
+    })
+    
     return;
 })
 //Start server
