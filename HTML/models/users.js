@@ -2,11 +2,11 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 //create user Schema
 let usersSchema = new Schema({
-    "First Name":{
+    FirstName:{
         type: String,
         required: true
     },
-    "Last Name":{
+    LastName:{
         type: String,
         required: true
     },
@@ -25,4 +25,4 @@ let usersSchema = new Schema({
     }
 });
 
-mongoose.model('users', usersSchema);
+let User = module.exports = mongoose.model('users', usersSchema);
