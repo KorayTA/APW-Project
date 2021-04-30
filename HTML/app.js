@@ -22,7 +22,7 @@ db.on('error', function(err){
 const app = express();
 
 //use models
-let User = require('./models/users');
+let User = require('./models/Users');
 
 //Loading view Engine
 app.set('views', path.join(__dirname, 'views')); 
@@ -95,7 +95,8 @@ app.post('/createAccount', function(req, res){
             console.log(req.body.Email);
             console.log(req.body.Password);
         }
-    })
+    res.render('')
+    });
     
     return;
 })
