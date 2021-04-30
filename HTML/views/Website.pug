@@ -4,12 +4,11 @@ html
     title 
       | Final Project
     img(src="/images/carDealership2.jpg")
-
     h1 #{title}
     h2 #{title1}
-    ul
-      each user, i in Users 
-        li= user.Email
+ul
+  each user, i in Users 
+    li= user.Email
   br
   br
   meta(name='viewport' content='width=100%, initial-scale=1')

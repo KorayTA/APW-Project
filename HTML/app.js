@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/FinalDB')
+mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
 let db = mongoose.connection;
 
 //check the connection
@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 //Home Route
-app.get('/', function(req,res) {
+app.get('/', function(req, res) {
     User.find({}, function(err, Users){
         if(err){
             console.log(err);
