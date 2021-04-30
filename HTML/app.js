@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
 let db = mongoose.connection;
 
+
+
 //check the connection
 db.once('open', function(){
     console.log('connected to the db.');
@@ -20,10 +22,15 @@ const app = express();
 
 //use models
 let User = require('./models/users');
+const bodyParser = require('body-parser');
 
 //Loading view Engine
 app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'pug');
+
+//Body Parser Middleware
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
 
 //Home Route
 app.get('/', function(req, res) {
@@ -71,6 +78,13 @@ app.get('/Create-A-Car', function(req, res) {
     });
 });
 
+app.post('/createAccount', function(req, res){
+    console.log(req.body.FirstName);
+    console.log(req.body.LastName);
+    console.log(req.body.Email);
+    console.log(req.body.Password);
+    return;
+})
 //Start server
 app.listen(3000, function() {
     console.log('Server started on 3000...')
