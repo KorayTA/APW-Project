@@ -1,19 +1,44 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/FinalDB')
+let db = mongoose.connection;
+
+//check the connection
+db.once('open', function(){
+    console.log('connected to the db.');
+})
+
+//check for db errors
+db.on('error', function(err){
+    console.log(err);
+});
 
 //Init App
 const app = express();
 
-//Loading the view Engine
+//use models
+let User = require('./models/users');
+
+//Loading view Engine
 app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'pug');
 
 //Home Route
 app.get('/', function(req,res) {
+    User.find({}, function(err, Users){
+        if(err){
+            console.log(err);
+        }
+        else{
 res.render('Website', {
     title: 'APW Dealership',
-    title1: 'Find your dream-car with us!'
-});
+    title1: 'Find your dream-car with us!',
+    Users: Users
+        });
+    }
+    });
 });
 
 //Add routes
