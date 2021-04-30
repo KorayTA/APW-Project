@@ -50,31 +50,55 @@ res.render('Website', {
 
 //Add routes
 app.get('/CreateAccount', function(req, res) {
+    User.find({}, function(err, Users){
+        if(err){
+            console.log(err);
+        }
+        else{
     res.render('createAccount', {
         title: 'APW Dealership',
         title1: 'Find your dream-car with us!',
         title3: 'Create-Account:',
-        title4: 'Please fill out the boxes below.'
-    });
+        title4: 'Please fill out the boxes below.',
+        Users: Users
+            });
+        }  
+    });    
 });
 
 app.get('/Sign-In', function(req, res) {
+    User.find({}, function(err, Users){
+        if(err){
+            console.log(err);
+        }
+        else{
     res.render('Sign-in', {
         title: 'APW Dealership',
         title1: 'Find your dream-car with us!',
         title3: 'Sign-in:',
-        title4: 'Please provide us with your email and password. Then tell us if you are a staff member or not.'
+        title4: 'Please provide us with your email and password. Then tell us if you are a staff member or not.',
+        Users: Users
+            });
+        }
     });
 });
 
 app.get('/Create-A-Car', function(req, res) {
+    User.find({}, function(err, Users){
+        if(err){
+            console.log(err);
+        }
+        else{
     res.render('Create-A-Car', {
         title: 'APW Dealership',
         title1: 'Find your dream-car with us!',
         title3: 'Car Search:',
         title4: 'Below you will find a series of options that will help us find the perfect car for you.',
         title5: 'If there is an option that you are unsure of, leave it blank! We will provide examples',
-        title6: 'based on the other information that you have given us.'
+        title6: 'based on the other information that you have given us.',
+        Users: Users
+            });
+        }
     });
 });
 
@@ -95,7 +119,6 @@ app.post('/createAccount', function(req, res){
             console.log(req.body.Email);
             console.log(req.body.Password);
         }
-    res.render('')
     });
     
     return;
