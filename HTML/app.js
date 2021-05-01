@@ -105,6 +105,7 @@ app.get('/Create-A-Car', function(req, res) {
     });
 });
 
+//createAccount Post route
 app.post('/createAccount', function(req, res){
     let user = new User();
     user.FirstName = req.body.FirstName;
@@ -112,6 +113,7 @@ app.post('/createAccount', function(req, res){
     user.Email = req.body.Email;
     user.Password = req.body.Password;
 
+    //adds user to Users db
     user.save(function(err){
         if(err){
             console.log(err);
@@ -126,6 +128,8 @@ app.post('/createAccount', function(req, res){
     
     return;
 })
+
+
 //Start server
 app.listen(3000, function() {
     console.log('Server started on 3000...')

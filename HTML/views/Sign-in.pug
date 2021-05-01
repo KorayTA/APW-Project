@@ -8,20 +8,13 @@ block content
   style.
     body {font-family: Arial;}
     /* Style the tab */
-  form(method='POST')
-  |        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: 
-  input(name='email')
-  br
-  br
-  |     Password: 
-  input(name='password')
-  br
-  br
-  |  Are you a staff member? 
-  input#staffYes(type='radio' name='staffQuestion' value='yes')
-  label(for='staffYes')   &nbsp;Yes  &nbsp;
-  input#staffNo(type='radio' name='staffQuestion' value='no')
-  label(for='staffNo')  No
-  br
-  br
-  input.btn.btn-primary(type= 'Sign in', value= 'Sign in')
+  form(method='POST', action='/Sign-in')
+    #form-group
+      label Email: 
+      input.form-control(name = "Email", type = "text")
+    br
+    #form-group
+      label Password 
+      input.form-control(name = "Password", type = "text")
+    br
+    input.btn.btn-primary(type='submit', value='Submit')
