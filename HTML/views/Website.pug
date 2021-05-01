@@ -3,14 +3,14 @@ html
   head
     title 
       | Final Project
-    link(rel = 'stylesheet' href= 'bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel = 'stylesheet' href= '/bower_components/bootstrap/dist/css/bootstrap.css')
     img(src="/images/carDealership2.jpg")
     h1 #{title}
     h2 #{title1}
     h3 
-    ul 
+    ul.list-group 
       each user, i in Users
-        li= user.FirstName
+        li.list-group-item= user.FirstName
   br
   br
   meta(name='viewport' content='width=100%, initial-scale=1')
