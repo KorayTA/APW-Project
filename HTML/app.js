@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const flash = require('connect-flash');
+const passport = require('passport');
+const ex = express();
+
 
 mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
 let db = mongoose.connection;
@@ -32,6 +36,13 @@ app.set('view engine', 'pug');
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+//Passport Config
+require('./config/passport')(passport);
+//Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 //seting public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -51,40 +62,17 @@ res.render('Website', {
     });
 });
 
-//Add routes
-app.get('/CreateAccount', function(req, res) {
-    User.find({}, function(err, Users){
-        if(err){
-            console.log(err);
-        }
-        else{
-    res.render('createAccount', {
-        title: 'APW Dealership',
-        title1: 'Find your dream-car with us!',
-        title3: 'Create-Account:',
-        title4: 'Please fill out the boxes below.',
-        Users: Users
-            });
-        }  
-    });    
-});
+//createAccount Route
+ let createAccount = require('./routes/createAccount');
+ app.use('/createAccount', createAccount);
 
-app.get('/Sign-In', function(req, res) {
-    User.find({}, function(err, Users){
-        if(err){
-            console.log(err);
-        }
-        else{
-    res.render('Sign-in', {
-        title: 'APW Dealership',
-        title1: 'Find your dream-car with us!',
-        title3: 'Sign-in:',
-        title4: 'Please provide us with your email and password. Then tell us if you are a staff member or not.',
-        Users: Users
-            });
-        }
-    });
-});
+//Sign-in Route
+ let Signin = require('./routes/Sign-in');
+ app.use('/Sign-in', Signin);
+
+//Add routes
+
+
 
 app.get('/Create-A-Car', function(req, res) {
     User.find({}, function(err, Users){
@@ -105,29 +93,7 @@ app.get('/Create-A-Car', function(req, res) {
     });
 });
 
-//createAccount Post route
-app.post('/createAccount', function(req, res){
-    let user = new User();
-    user.FirstName = req.body.FirstName;
-    user.LastName = req.body.LastName;
-    user.Email = req.body.Email;
-    user.Password = req.body.Password;
 
-    //adds user to Users db
-    user.save(function(err){
-        if(err){
-            console.log(err);
-            return;
-        }else{
-            console.log(req.body.FirstName);
-            console.log(req.body.LastName);
-            console.log(req.body.Email);
-            console.log(req.body.Password);
-        }
-    });
-    
-    return;
-})
 
 
 //Start server
