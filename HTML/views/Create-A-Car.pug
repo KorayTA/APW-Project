@@ -4,26 +4,24 @@ block content
   h2 #{title3}
   h3 #{title4} #{title5} #{title6}
   
-    form(method = 'POST')
+    form(method = 'POST', action = '/Create-A-Car')
       br
-      |     Car brand: 
+      |     Car brand:
       select(name='brand')
-        option(value='1')  None
-        option(value='2')  Ford
-        option(value='3')  BMW
-        option(value='4')  Toyoda
-        option(value='5')  Lincoln
-        option(value='6')  Subaru
+        option(value='Ford')  Ford
+        option(value='BMW')  BMW
+        option(value='Toyoda')  Toyoda
+        option(value='Lincoln')  Lincoln
+        option(value='Subaru')  Subaru
       br
       br
-      |     Type: 
+      |     Type:
       select(name='type')
-        option(value='1')  None
-        option(value='2')  Sedan
-        option(value='3')  Van
-        option(value='4')  Truck
-        option(value='5')  Convertable
-        option(value='6')  Coupe
+        option(value='Sedan')  Sedan
+        option(value='Van')  Van
+        option(value='Truck')  Truck
+        option(value='Convertible')  Convertible
+        option(value='Coupe')  Coupe
       br
       br
       fieldset
@@ -38,43 +36,41 @@ block content
         label(for='packageLimited')  Limited
         br
       br
-      |     Interior color: 
+      |     Interior color:
       select(name='intColor')
-        option(value='1')  None
-        option(value='2')  Red
-        option(value='3')  Orange
-        option(value='4')  Yellow
-        option(value='5')  Green
-        option(value='6')  Blue
-        option(value='7')  Purple
-        option(value='8')  Black
-        option(value='9')  White
-        option(value='10')  Pink
-        option(value='11')  Silver
-        option(value='12')  Brown
-        option(value='13')  Gold
-        option(value='14')  Tan
+        option(value='Red')  Red
+        option(value='Orange')  Orange
+        option(value='Yellow')  Yellow
+        option(value='Green')  Green
+        option(value='Blue')  Blue
+        option(value='Purple')  Purple
+        option(value='Black')  Black
+        option(value='White')  White
+        option(value='Pink')  Pink
+        option(value='Silver')  Silver
+        option(value='Brown')  Brown
+        option(value='Gold')  Gold
+        option(value='Tan')  Tan
       br
       br
-      |     Exterior color: 
+      |     Exterior color:
       select(name='extColor')
-        option(value='1')  None
-        option(value='2')  Red
-        option(value='3')  Orange
-        option(value='4')  Yellow
-        option(value='5')  Green
-        option(value='6')  Blue
-        option(value='7')  Purple
-        option(value='8')  Black
-        option(value='9')  White
-        option(value='10')  Pink
-        option(value='11')  Silver
-        option(value='12')  Brown
-        option(value='13')  Gold
-        option(value='14')  Tan
+        option(value='Red')  Red
+        option(value='Orange')  Orange
+        option(value='Yellow')  Yellow
+        option(value='Green')  Green
+        option(value='Blue')  Blue
+        option(value='Purple')  Purple
+        option(value='Black')  Black
+        option(value='White')  White
+        option(value='Pink')  Pink
+        option(value='Silver')  Silver
+        option(value='Brown')  Brown
+        option(value='Gold')  Gold
+        option(value='Tan')  Tan
       br
       br
-      |     Your starting price:  
+      |     Your starting price: 
       input(type='number' name='startPrice' min='5000' max='100000' step='1')
       br
       br
