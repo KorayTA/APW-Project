@@ -29,8 +29,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 //Body Parser Middleware
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
+//seting public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Home Route
 app.get('/', function(req, res) {

@@ -19,10 +19,9 @@ block content
   br
   |  Are you a staff member? 
   input#staffYes(type='radio' name='staffQuestion' value='yes')
-  label(for='staffYes')  Yes
+  label(for='staffYes')   &nbsp;Yes  &nbsp;
   input#staffNo(type='radio' name='staffQuestion' value='no')
   label(for='staffNo')  No
-    br
-    br
-    button(onclick='sign_in()')
-      | Sign in
+  br
+  br
+  input.btn.btn-primary(type= 'Sign in', value= 'Sign in')

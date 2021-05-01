@@ -3,6 +3,7 @@ html
   head
     title 
       | Final Project
+    link(rel = 'stylesheet' href= 'bower_components/bootstrap/dist/css/bootstrap.css')
     img(src="/images/carDealership2.jpg")
     h1 #{title}
     h2 #{title1}
@@ -51,8 +52,9 @@ html
   .tab 
     a(href = '/Sign-in') Sign-in &nbsp;&nbsp;           
     a(href = '/createAccount') Create an account &nbsp;&nbsp;       
-    a(href = '/Create-A-Car') Create-A-Car &nbsp;&nbsp;       
-    
+    a(href = '/Create-A-Car') Car Search &nbsp;&nbsp;       
+
+.container    
 block content
 br
 hr
