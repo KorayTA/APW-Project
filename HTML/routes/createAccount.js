@@ -41,16 +41,22 @@ router.post('/', function(req,res){
         Email:Email,
         Password:Password
     });
-        
-    newUser.save(function(err){
-        if(err){
-            console.log(err);
-            return;
-        }else{
-            //Confirms account creation and redirects to Sign-in
-            console.log('Account Created');
-            res.redirect('/Sign-in');
-        }
-    });
+    const confirm = req.body.Confirm;
+    if(confirm == newUser.Password){
+        newUser.save(function(err){
+            if(err){
+                console.log(err);
+                return;
+            }else{
+                //Confirms account creation and redirects to Sign-in
+                console.log('Account Created');
+                res.redirect('/Sign-in');
+            }
+        });
+    }else{
+        console.log('Passwords dont match');
+        res.redirect('/createAccount');
+    }
+    
 });
 module.exports = router;
