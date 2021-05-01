@@ -10,7 +10,8 @@ html
     h3 
     ul.list-group 
       each user, i in Users
-        li.list-group-item= user.FirstName
+        li.list-group-item
+          a(href="/user/" + user._id)= user.FirstName
   br
   br
   meta(name='viewport' content='width=100%, initial-scale=1')

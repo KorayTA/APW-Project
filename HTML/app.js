@@ -124,6 +124,9 @@ app.post('/Create-A-Car', function(req, res){
     return;
 });
 
+//Get single car
+app.get('/car/:id')
+
 
 //Start server
 app.listen(3000, function() {
