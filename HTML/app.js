@@ -23,6 +23,7 @@ const app = express();
 
 //use models
 let User = require('./models/Users');
+let Car = require('./models/Cars');
 
 //Loading view Engine
 app.set('views', path.join(__dirname, 'views')); 
@@ -130,7 +131,32 @@ app.post('/createAccount', function(req, res){
 })
 
 //Create-A-Car Post route
+app.post('/Create-A-Car', function(req, res){
+    let car = new Car();
+    car.Type = req.body.type;
+    car.Package = req.body.package;
+    car.Interior = req.body.intColor;
+    car.Exterior = req.body.extColor;
+    car.Price = req.body.startPrice;
+    car.Brand = req.body.brand;
 
+    //adds user to Users db
+    //car.save(function(err){
+        //if(err){
+            //console.log(err);
+           // return;
+        //}else{
+            console.log(req.body.type);
+            console.log(req.body.package);
+            console.log(req.body.intColor);
+            console.log(req.body.extColor);
+            console.log(req.body.startPrice);
+            console.log(req.body.brand);
+        //}
+    //});
+    
+    return;
+});
 
 
 //Start server
