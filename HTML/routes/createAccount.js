@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const expressValidator = require('express-validator');
-const bcrypt = require('bcryptjs');
+//const cookieParser = require('cookie-parser');
 router.use(express.json());
 
 //Bring in user model
@@ -47,11 +46,13 @@ router.post('/', function(req,res){
                 return;
             }else{
                 //Confirms account creation and redirects to Sign-in
+                req.flash('success','Account Created');
                 console.log('Account Created');
                 res.redirect('/Sign-in');
             }
         });
     }else{
+        req.flash('danger','Passwords do not match');
         console.log('Passwords dont match');
         res.redirect('/createAccount');
     }

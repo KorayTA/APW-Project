@@ -26,7 +26,9 @@ router.get('/', function(req, res) {
 router.post('/', function(req,res, next){
     passport.authenticate('local', {
         successRedirect:'/Create-A-Car',
-        failureRedirect:'/Sign-in'
+        failureRedirect:'/Sign-in',
+        failureFlash: true,
+        successFlash: true
     })(req,res,next);
     
 });

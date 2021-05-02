@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const passport = require('passport');
+const session = require('express-session');
 
 
 mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
@@ -41,6 +42,24 @@ require('./config/passport')(passport);
 //Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Express Session Middleware
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUnitialized:true
+}));
+
+//Expresss Messages Middleware
+app.use(require('connect-flash')());
+app.use(function (req, res, next){
+    res.locals.messages = require('express-messages')(req,res);
+    next();
+});
+
+//app.use(cookieParser());
+app.use(session({ secret: '123' }));
+app.use(flash());
 
 
 //seting public folder
