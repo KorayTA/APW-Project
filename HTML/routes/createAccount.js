@@ -5,7 +5,8 @@ const bcrypt = require('bcryptjs');
 router.use(express.json());
 
 //Bring in user model
-let User = require('../models/Users')
+let User = require('../models/Users');
+const { db } = require('../models/Users');
 
 //Renders CreateAccount Page
 router.get('/', function(req, res) {

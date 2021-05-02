@@ -1,0 +1,8 @@
+extends Website 
+
+block content 
+    h3 
+        ul.list-group 
+        each car, i in Cars
+            li.list-group-item
+            a(href="/car/" + car._id)= car.Brand
