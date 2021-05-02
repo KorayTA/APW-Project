@@ -66,16 +66,30 @@ router.post('/', function(req, res){
     return;
 });
 
+//Get Cars from DB
 router.get('/yourCars', function(req, res) {
     Car.find({}, function(err, Cars){
         if(err){
             console.log(err);
         }
         else{
-    res.render('yourCars', { 
+    res.render('yourCars', {
+        title: 'APW Dealership',
+        title1: 'Find your dream-car with us!',
         Cars: Cars
             });
         }
+    });
+});
+
+//Get Single Car
+router.get('/yourCars/:id', function(req, res) {
+    Car.findById(req.params.id, function(err, car) {
+       res.render('car', {
+        title: 'APW Dealership',
+        title1: 'Find your dream-car with us!',
+        car: car    
+        });   
     });
 });
 
