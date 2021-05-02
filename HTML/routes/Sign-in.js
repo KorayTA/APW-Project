@@ -1,7 +1,5 @@
 const express = require('express');
-var bodyParser = require('body-parser')
 const router = express.Router();
-const bcrypt = require('bcryptjs');
 const passport = require('passport');
 //Bring in user model
 let User = require('../models/Users')

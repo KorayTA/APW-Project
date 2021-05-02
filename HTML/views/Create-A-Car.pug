@@ -8,15 +8,17 @@ block content
       br
       |     Car brand:
       select(name='brand')
+        option(value= '') None
         option(value='Ford')  Ford
         option(value='BMW')  BMW
-        option(value='Toyoda')  Toyoda
+        option(value='Toyota')  Toyota
         option(value='Lincoln')  Lincoln
         option(value='Subaru')  Subaru
       br
       br
       |     Type:
       select(name='type')
+        option(value= '') None
         option(value='Sedan')  Sedan
         option(value='Van')  Van
         option(value='Truck')  Truck
@@ -38,6 +40,7 @@ block content
       br
       |     Interior color:
       select(name='intColor')
+        option(value= '') None
         option(value='Red')  Red
         option(value='Orange')  Orange
         option(value='Yellow')  Yellow
@@ -55,6 +58,7 @@ block content
       br
       |     Exterior color:
       select(name='extColor')
+        option(value= '') None
         option(value='Red')  Red
         option(value='Orange')  Orange
         option(value='Yellow')  Yellow
@@ -71,7 +75,7 @@ block content
       br
       br
       |     Your starting price: 
-      input(type='number' name='startPrice' min='5000' max='100000' step='1')
+      input(type='number' name='startPrice' min='10000' max='100000' step='100')
       br
       br
       button(onclick='car_create()')

@@ -4,19 +4,19 @@ let Schema = mongoose.Schema;
 let carsSchema = new Schema({
     Type:{
         type: String,
-        required: true
+        required: false
     },
     Package:{
         type: String,
-        required: true
+        required: false
     },
     Interior:{
         type: String,
-        required: true
+        required: false
     },
     Exterior:{
         type: String,
-        required: true
+        required: false
     },
     Price:{
         type: Number,
@@ -24,11 +24,11 @@ let carsSchema = new Schema({
     },
     Brand:{
         type: String,
-        required: true
+        required: false
     },
     Vin:{
         type: String,
-        required: true
+        required: false
     }
 });
 let Car = module.exports = mongoose.model('cars', carsSchema);

@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const passport = require('passport');
-const ex = express();
 
 
 mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
@@ -63,6 +62,8 @@ res.render('Website', {
     });
 });
 
+//Add Routes
+
 //createAccount Route
  let createAccount = require('./routes/createAccount');
  app.use('/createAccount', createAccount);
@@ -71,58 +72,10 @@ res.render('Website', {
  let Signin = require('./routes/Sign-in');
  app.use('/Sign-in', Signin);
 
-//Add routes
+//Create-a-Car Route
+ let CreateCar = require('./routes/Create-A-Car');
+ app.use('/Create-A-Car', CreateCar);
 
-
-
-app.get('/Create-A-Car', function(req, res) {
-    User.find({}, function(err, Users){
-        if(err){
-            console.log(err);
-        }
-        else{
-    res.render('Create-A-Car', {
-        title: 'APW Dealership',
-        title1: 'Find your dream-car with us!',
-        title3: 'Car Search:',
-        title4: 'Below you will find a series of options that will help us find the perfect car for you.',
-        title5: 'If there is an option that you are unsure of, leave it blank! We will provide examples',
-        title6: 'based on the other information that you have given us.',
-        Users: Users
-            });
-        }
-    });
-});
-
-
-
-//Create-A-Car Post route
-app.post('/Create-A-Car', function(req, res){
-    let car = new Car();
-    car.Type = req.body.type;
-    car.Package = req.body.package;
-    car.Interior = req.body.intColor;
-    car.Exterior = req.body.extColor;
-    car.Price = req.body.startPrice;
-    car.Brand = req.body.brand;
-
-    //adds user to Users db
-    //car.save(function(err){
-        //if(err){
-            //console.log(err);
-           // return;
-        //}else{
-            console.log(req.body.type);
-            console.log(req.body.package);
-            console.log(req.body.intColor);
-            console.log(req.body.extColor);
-            console.log(req.body.startPrice);
-            console.log(req.body.brand);
-        //}
-    //});
-    
-    return;
-});
 
 //Get single car
 app.get('/car/:id')

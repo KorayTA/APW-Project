@@ -1,9 +1,7 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const router = express();
+const router = express.Router();
 const expressValidator = require('express-validator');
 const bcrypt = require('bcryptjs');
-
 router.use(express.json());
 
 //Bring in user model
