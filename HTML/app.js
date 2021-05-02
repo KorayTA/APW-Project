@@ -77,10 +77,6 @@ res.render('Website', {
  app.use('/Create-A-Car', CreateCar);
 
 
-//Get single car
-app.get('/car/:id')
-
-
 //Start server
 app.listen(3000, function() {
     console.log('Server started on 3000...')
