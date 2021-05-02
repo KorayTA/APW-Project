@@ -25,15 +25,17 @@ router.get('/', function(req, res) {
     });
 });
 
+
 //Create-A-Car Post
 router.post('/', function(req, res){
     let car = new Car();
+    car.Brand = req.body.brand;
     car.Type = req.body.type;
     car.Package = req.body.package;
     car.Interior = req.body.intColor;
     car.Exterior = req.body.extColor;
     car.Price = req.body.startPrice;
-    car.Brand = req.body.brand;
+    
 
     //Default Package is blank string
     if(car.Package == undefined){
@@ -49,7 +51,9 @@ router.post('/', function(req, res){
         car.Price = req.body.startPrice;
     }
     
-
+    //if(car.Brand == db.Cars.find({Brand:"BMW"})) {
+        //console.log(db.Cars.find({Brand:"BMW"}));
+    //}
     
     console.log(car.Brand);
     console.log(car.Type);
@@ -60,6 +64,33 @@ router.post('/', function(req, res){
         
     
     return;
+});
+
+//Get Cars from DB
+router.get('/yourCars', function(req, res) {
+    Car.find({}, function(err, Cars){
+        if(err){
+            console.log(err);
+        }
+        else{
+    res.render('yourCars', {
+        title: 'APW Dealership',
+        title1: 'Find your dream-car with us!',
+        Cars: Cars
+            });
+        }
+    });
+});
+
+//Get Single Car
+router.get('/yourCars/:id', function(req, res) {
+    Car.findById(req.params.id, function(err, car) {
+       res.render('car', {
+        title: 'APW Dealership',
+        title1: 'Find your dream-car with us!',
+        car: car    
+        });   
+    });
 });
 
 module.exports = router;

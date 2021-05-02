@@ -31,4 +31,4 @@ let carsSchema = new Schema({
         required: false
     }
 });
-let Car = module.exports = mongoose.model('cars', carsSchema);
+let Car = module.exports = mongoose.model('Cars', carsSchema);
