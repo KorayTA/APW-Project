@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-//const cookieParser = require('cookie-parser');
 router.use(express.json());
 
 //Bring in user model

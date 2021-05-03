@@ -5,6 +5,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const session = require('express-session');
 global.logUser = false;
+global.Staff = false;
 
 mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
 let db = mongoose.connection;
@@ -99,6 +100,10 @@ res.render('Website', {
 //Create-a-Car Route
  let CreateCar = require('./routes/Create-A-Car');
  app.use('/Create-A-Car', CreateCar);
+
+//EditCars Route
+ let EditCars = require('./routes/EditCars');
+ app.use('/EditCars', EditCars);
 
 
 

@@ -51,6 +51,7 @@ router.post('/', function(req, res){
     }else{
         car.Price = req.body.startPrice;
     }
+     res.redirect('/Create-A-Car/yourCars');
 
     //Search for the best match car from the search 
 
