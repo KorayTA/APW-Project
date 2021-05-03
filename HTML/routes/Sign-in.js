@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
         title: 'APW Dealership',
         title1: 'Find your dream-car with us!',
         title3: 'Sign-in:',
-        title4: 'Please provide us with your email and password. Then tell us if you are a staff member or not.',
+        title4: 'Please provide us with your email and password',
         Users: Users
             });
         }
