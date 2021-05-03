@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const passport = require('passport');
 const session = require('express-session');
@@ -33,6 +32,8 @@ let Car = require('./models/Cars');
 app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'pug');
 
+//Middleware
+
 //Body Parser Middleware
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -57,7 +58,7 @@ app.use(function (req, res, next){
     next();
 });
 
-//app.use(cookieParser());
+//Message flash Middleware
 app.use(session({ secret: '123' }));
 app.use(flash());
 
