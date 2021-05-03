@@ -51,6 +51,21 @@ router.post('/', function(req, res){
         car.Price = req.body.startPrice;
     }
     res.redirect('/Create-A-Car/yourCars');
+
+    //If statements to search for cars
+    if (Car.find(req.params.Brand) == car.Brand) {}
+    
+    res.redirect('/Create-A-Car/yourCars');
+    //if(car.Brand == db.Cars.find({Brand:"BMW"})) {
+        //console.log(db.Cars.find({Brand:"BMW"}));
+    //}
+    
+    //console.log(car.Brand);
+    //console.log(car.Type);
+    //console.log(car.Package);
+    //console.log(car.Interior);
+    //console.log(car.Exterior);
+    //console.log(car.Price);
         
     
     return;
