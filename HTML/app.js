@@ -48,7 +48,7 @@ app.use(passport.session());
 app.use(session({
     secret: 'keyboard cat',
     resave: true,
-    saveUnitialized:true
+    saveUninitialized: true
 }));
 
 //Expresss Messages Middleware
@@ -59,7 +59,11 @@ app.use(function (req, res, next){
 });
 
 //Message flash Middleware
-app.use(session({ secret: '123' }));
+app.use(session({ 
+    secret: '123' ,
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(flash());
 
 
