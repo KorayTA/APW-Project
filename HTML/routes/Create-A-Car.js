@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { db, aggregate } = require('../models/Cars');
 
 //Car Model Import
 let Car = require('../models/Cars');
@@ -51,38 +50,57 @@ router.post('/', function(req, res){
     }else{
         car.Price = req.body.startPrice;
     }
+    res.redirect('/Create-A-Car/yourCars');
 
     //Search for the best match car from the search 
 
-    if(Car.find(req.params.price) <= car.price){
-
-        db.car.aggregate(
-            [
-                {"$sort":{Brand: 1}, "$sort":{Type :1}, "$sort":{Package: 1}, "$sort":{Interior: 1}, "$sort":{Exterior: 1}}
-            ],
-            function(err, result){
-                if (err) throw err;
-                console.log()
+    app.post('/Create-A-Car', function(req, res){
+        postData = '';
+        req.on('data', (data) =>{
+        postData+=data;
+        });
+        req.on('end', async ()=>{
+        //Break into functions
+        console.log(postData);
+        if (moveOn(postData)){
+            let Cars = dbManager.get().collection("Cars");
+            var prop= postParams.prop;
+            var val = postParams.value;
+            if (prop = "Car" && prop != "Car.type"){
+            val = Number(postParams.value);
             }
-        )
-
-    }
-
-
-    // if(Car.find(req.params.price) <= car.price){
-    //     if(car.Brand == Car.find(req.params.Brand), function(req, res){
-    //         //let arr = [Car.params.id];
-    //         console.log(car.params.id)
-    //     });
-    // }
+            //simple equality search. using [] allows a variable
+            //in the property name
+            let searchDoc = { [prop] : val };
+            try{
+            let cursor = Cars.find(searchDoc,  {
+                projection: { _id:0 , Brand: -1, Type: -1, Exterior: -1, Interior: -1, Package: -1}}).sort({Brand: -1});
+            let resultOBJ={data: cursor, [prop]  : val, prop: prop};
+    
+            searchResp(resultOBJ, res).then( page =>
+                             {res.status(200).send(page)
+                              });//call the searchPage
+            } catch (e){
+            console.log(e.message);
+            res.writeHead(404);
+            res.write("<html><body><h1> ERROR 404. Page NOT FOUND</h1>");
+            res.end("<br>" + e.message + "<br></body></html>");
+            }
+        } else{ // can't move on
+            searchResp(null, res).then(
+            page => {res.status(200).send(page)}
+        );
+        }
+        });
+    });
 
     
-    //console.log(car.Brand);
-    //console.log(car.Type);
-    //console.log(car.Package);
-    //console.log(car.Interior);
-    //console.log(car.Exterior);
-    //console.log(car.Price);
+    // console.log(car.Brand);
+    // console.log(car.Type);
+    // console.log(car.Package);
+    // console.log(car.Interior);
+    // console.log(car.Exterior);
+    // console.log(car.Price);
         
     
     return;
