@@ -1,8 +1,6 @@
 const passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/Users');
-const config = require('../config/database');
-const bcrypt = require('bcryptjs');
 
 module.exports = function(passport){
     //Local Strategy
@@ -12,17 +10,19 @@ module.exports = function(passport){
             if(err) {return done(err);}
             if(!user){
                 console.log('No user found');
-                return done(null, false, {message: 'No user found'});
+                return done(null, false, {message: 'Incorrect Email or Password'});
                 
             }
 
             //Match Password
             if (user.Password != password) {
                 console.log('Wrong Password');
-                return done(null, false, { message: 'Incorrect password.' });
+                return done(null, false, { message: 'Incorrect Email or Password' });
               }
             console.log('Signed in');
-            return done(null, user);
+            logUser=true;
+            return done(null, user, {message: 'Successfully Signed In'});
+            
         });
     }));
 

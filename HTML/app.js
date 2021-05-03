@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const passport = require('passport');
-
+const session = require('express-session');
+global.logUser = false;
 
 mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
 let db = mongoose.connection;
@@ -32,6 +32,8 @@ let Car = require('./models/Cars');
 app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'pug');
 
+//Middleware
+
 //Body Parser Middleware
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -41,6 +43,28 @@ require('./config/passport')(passport);
 //Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Express Session Middleware
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+}));
+
+//Expresss Messages Middleware
+app.use(require('connect-flash')());
+app.use(function (req, res, next){
+    res.locals.messages = require('express-messages')(req,res);
+    next();
+});
+
+//Message flash Middleware
+app.use(session({ 
+    secret: '123' ,
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(flash());
 
 
 //seting public folder
@@ -56,7 +80,7 @@ app.get('/', function(req, res) {
 res.render('Website', {
     title: 'APW Dealership',
     title1: 'Find your dream-car with us!',
-    Users: Users
+    Users: Users,
         });
     }
     });
@@ -75,6 +99,9 @@ res.render('Website', {
 //Create-a-Car Route
  let CreateCar = require('./routes/Create-A-Car');
  app.use('/Create-A-Car', CreateCar);
+
+
+
 
 //Start server
 app.listen(3000, function() {

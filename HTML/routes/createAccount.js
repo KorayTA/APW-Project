@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const expressValidator = require('express-validator');
-const bcrypt = require('bcryptjs');
+//const cookieParser = require('cookie-parser');
 router.use(express.json());
 
 //Bring in user model
@@ -33,29 +32,36 @@ router.post('/', function(req,res){
     const Email = req.body.Email;
     const Password = req.body.Password;
 
-    
-    let newUser = new User({
-        FirstName:FirstName,
-        LastName:LastName,
-        Email:Email,
-        Password:Password
-    });
-    const confirm = req.body.Confirm;
-    if(confirm == newUser.Password){
-        newUser.save(function(err){
-            if(err){
-                console.log(err);
-                return;
-            }else{
-                //Confirms account creation and redirects to Sign-in
-                console.log('Account Created');
-                res.redirect('/Sign-in');
-            }
-        });
-    }else{
-        console.log('Passwords dont match');
+    if(FirstName == '' || LastName == '' || Email == '' || Password == ''){
+        req.flash('danger', 'Please Fill Out All Fields');
         res.redirect('/createAccount');
+    }else{
+        let newUser = new User({
+            FirstName:FirstName,
+            LastName:LastName,
+            Email:Email,
+            Password:Password
+        });
+        const confirm = req.body.Confirm;
+        if(confirm == newUser.Password){
+            newUser.save(function(err){
+                if(err){
+                    console.log(err);
+                    return;
+                }else{
+                    //Confirms account creation and redirects to Sign-in
+                    req.flash('success','Account Created');
+                    console.log('Account Created');
+                    res.redirect('/Sign-in');
+                }
+            });
+        }else{
+            req.flash('danger','Passwords Do Not Match');
+            console.log('Passwords dont match');
+            res.redirect('/createAccount');
+        }
     }
+    
     
 });
 module.exports = router;
