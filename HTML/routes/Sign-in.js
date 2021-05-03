@@ -36,6 +36,7 @@ router.post('/', function(req,res, next){
 //Logout
 router.get('/logout', function(req,res,next){
     logUser = false;
+    Staff = false;
     req.flash('success','Successfully Logged out');
     res.redirect('/Sign-in');
 });

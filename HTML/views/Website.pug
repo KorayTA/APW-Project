@@ -21,9 +21,12 @@ html
                 a.nav-link(aria-current='page' href= '/Sign-in') Sign in 
               li.nav-item
                 a.nav-link(aria-current='page' href= '/createAccount') Create Account
-          ul.navbar-nav.me-auto
-            li.nav-item
-              a.nav-link(aria-current='page' href='/Create-A-Car') Search Car
+            if Staff 
+                li.nav-item 
+                  a.nav-link(aria-current='page' href='/EditCars') Edit Cars
+            ul.navbar-nav.me-auto
+              li.nav-item
+                a.nav-link(aria-current='page' href='/Create-A-Car') Search Car
           
     br        
     h1 #{title}

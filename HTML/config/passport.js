@@ -21,6 +21,8 @@ module.exports = function(passport){
               }
             console.log('Signed in');
             logUser=true;
+            Staff=user.Staff;
+            console.log(Staff);
             return done(null, user, {message: 'Successfully Signed In'});
             
         });

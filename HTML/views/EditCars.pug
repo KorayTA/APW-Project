@@ -4,11 +4,10 @@ block content
   h2 #{title3}
   h3 #{title4} #{title5} #{title6}
   
-    form(method = 'POST', action = '/Create-A-Car')
+    form(method = 'POST', action = '/EditCars/AddCar')
       br
       |     Car brand:
       select(name='brand')
-        option(value= '') None
         option(value='Ford')  Ford
         option(value='BMW')  BMW
         option(value='Toyota')  Toyota
@@ -18,7 +17,6 @@ block content
       br
       |     Type:
       select(name='type')
-        option(value= '') None
         option(value='Sedan')  Sedan
         option(value='Van')  Van
         option(value='Truck')  Truck
@@ -40,7 +38,6 @@ block content
       br
       |     Interior color:
       select(name='intColor')
-        option(value= '') None
         option(value='Grey') Grey
         option(value='Black')  Black
         option(value='White')  White
@@ -49,7 +46,6 @@ block content
       br
       |     Exterior color:
       select(name='extColor')
-        option(value= '') None
         option(value='Red')  Red
         option(value='Orange')  Orange
         option(value='Yellow')  Yellow
@@ -69,10 +65,21 @@ block content
       input(type='number' name='startPrice' min='10000' max='100000' step='100')
       br
       br
-<<<<<<< HEAD
-      button(onclick='car_create()')
-        | Create
-=======
-      input.btn.btn-primary(type='submit', value='Search')
->>>>>>> 660bcc95b5ad671b81bb8239f7c2e4d8b3626815
+      #form-group
+        label Vin Number: 
+        input.form-control(name = "Vin", type = "text")
+      br
+      br
+      input.btn.btn-primary(type='submit', value='Add Car')
+    br
+    br 
+    form(method = 'POST', action = '/EditCars/RemoveCar')
+      #form-group
+        label Vin Number: 
+        input.form-control(name = "Vin", type = "text")
+      br
+      br
+      input.btn.btn-primary(type='submit', value='Remove Car')
+        
+        
         
