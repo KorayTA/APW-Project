@@ -84,7 +84,6 @@ router.post('/', function(req, res){
     //console.log(car.Interior);
     //console.log(car.Exterior);
     //console.log(car.Price);
-    res.redirect('/yourCars');
     
     return;
 });
