@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const passport = require('passport');
 const session = require('express-session');
-
+global.logUser = false;
 
 mongoose.connect('mongodb://localhost:27017/FinalDB', { useNewUrlParser: true, useUnifiedTopology: true});
 let db = mongoose.connection;
@@ -75,7 +75,7 @@ app.get('/', function(req, res) {
 res.render('Website', {
     title: 'APW Dealership',
     title1: 'Find your dream-car with us!',
-    Users: Users
+    Users: Users,
         });
     }
     });
@@ -94,6 +94,9 @@ res.render('Website', {
 //Create-a-Car Route
  let CreateCar = require('./routes/Create-A-Car');
  app.use('/Create-A-Car', CreateCar);
+
+
+
 
 //Start server
 app.listen(3000, function() {

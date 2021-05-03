@@ -13,8 +13,19 @@ html
           span.navbar-toggler-icon
         #navbarsExample02.collapse.navbar-collapse
           ul.navbar-nav.me-auto
+            if logUser
+              li.nav-item 
+                a.nav-link(aria-current='page' href='/Sign-in/logout') Logout
+            else if !log
+              li.nav-item
+                a.nav-link(aria-current='page' href= '/Sign-in') Sign in 
+              li.nav-item
+                a.nav-link(aria-current='page' href= '/createAccount') Create Account
+          ul.navbar-nav.me-auto
             li.nav-item
-              a.nav-link(aria-currnent='page' href='/Create-A-Car') Search Car
+              a.nav-link(aria-current='page' href='/Create-A-Car') Search Car
+              
+              
     h1 #{title}
     h2 #{title1}
     br

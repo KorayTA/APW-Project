@@ -22,7 +22,9 @@ module.exports = function(passport){
                 return done(null, false, { message: 'Incorrect Email or Password' });
               }
             console.log('Signed in');
+            logUser=true;
             return done(null, user, {message: 'Successfully Signed In'});
+            
         });
     }));
 
