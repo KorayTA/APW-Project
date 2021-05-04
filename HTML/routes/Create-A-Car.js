@@ -16,9 +16,7 @@ router.get('/', function(req, res) {
         title: 'APW Dealership',
         title1: 'Find your dream-car with us!',
         title3: 'Car Search:',
-        title4: 'Below you will find a series of options that will help us find the perfect car for you.',
-        title5: 'If there is an option that you are unsure of, leave it blank! We will provide examples',
-        title6: 'based on the other information that you have given us.',
+        title4: 'Please Select Your Sort Preferences!',
         Users: Users
             });
         }
