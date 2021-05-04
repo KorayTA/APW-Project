@@ -9,21 +9,27 @@ const Cars = require('../models/Cars');
 
 //Page Render
 router.get('/', function(req, res) {
-    User.find({}, function(err,Users){
-        if(err){
-            console.log(err);
-        }
-        else{
-    res.render('EditCars', {
-        title: 'APW Dealership',
-        title1: 'Find your dream-car with us!',
-        title3: 'Edit Car database:',
-        title4: 'Enter preferred options to add car to database or ',
-        title5: 'enter car vin number to remove desired car',
-        Users: Users
-            });
-        }
-    });
+    if(Staff){
+        User.find({}, function(err,Users){
+            if(err){
+                console.log(err);
+            }
+            else{
+        res.render('EditCars', {
+            title: 'APW Dealership',
+            title1: 'Find your dream-car with us!',
+            title3: 'Edit Car database:',
+            title4: 'Enter preferred options to add car to database or ',
+            title5: 'enter car vin number to remove desired car',
+            Users: Users
+                });
+            }
+        });
+    }else{
+        req.flash('danger', 'You Do Not Have Access To This Page');
+        res.redirect('/');
+    }
+    
 });
 
 //Add car post
