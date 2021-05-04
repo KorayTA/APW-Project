@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { db, aggregate } = require('../models/Cars');
 
 //Car Model Import
 let Car = require('../models/Cars');
@@ -25,83 +24,76 @@ router.get('/', function(req, res) {
         }
     });
 });
-
-
-//Create-A-Car Post
-router.post('/', function(req, res){
-    let car = new Car();
-    car.Brand = req.body.brand;
-    car.Type = req.body.type;
-    car.Package = req.body.package;
-    car.Interior = req.body.intColor;
-    car.Exterior = req.body.extColor;
-    car.Price = req.body.startPrice;
-    
-
-    //Default Package is blank string
-    if(car.Package == undefined){
-        car.Package = '';
-    }else{
-        car.Package = req.body.Package;
-    }
-
-    //Default Price is 50,000
-    if(car.Price == null){
-        car.Price = 50000;
-    }else{
-        car.Price = req.body.startPrice;
-    }
-     res.redirect('/Create-A-Car/yourCars');
-
-    //Search for the best match car from the search 
-
-    if(Car.find(req.params.price) <= car.price){
-
-        db.car.aggregate(
-            [
-                {"$sort":{Brand: 1}, "$sort":{Type :1}, "$sort":{Package: 1}, "$sort":{Interior: 1}, "$sort":{Exterior: 1}}
-            ],
-            function(err, result){
-                if (err) throw err;
-                console.log()
-            }
-        )
-
-    }
-
-
-    // if(Car.find(req.params.price) <= car.price){
-    //     if(car.Brand == Car.find(req.params.Brand), function(req, res){
-    //         //let arr = [Car.params.id];
-    //         console.log(car.params.id)
-    //     });
-    // }
-
-    
-    //console.log(car.Brand);
-    //console.log(car.Type);
-    //console.log(car.Package);
-    //console.log(car.Interior);
-    //console.log(car.Exterior);
-    //console.log(car.Price);
-    
+router.get('/yourCars', function(req, res){
+    res.redirect('/Create-A-Car/yourCars')
     return;
 });
 
 //Get Cars from DB
-router.get('/yourCars', function(req, res) {
-    Car.find({}, function(err, Cars){
-        if(err){
-            console.log(err);
-        }
-        else{
-    res.render('yourCars', {
-        title: 'APW Dealership',
-        title1: 'Find your dream-car with us!',
-        Cars: Cars
-            });
-        }
-    });
+router.post('/yourCars', function(req, res) {
+    var tempOrder;
+    if(req.body.order == 'Acending'){
+        tempOrder = 1;
+    }else if(req.body.order == 'Decending'){
+        tempOrder = -1;
+    }else{
+        var tempOrder = -1;
+    }
+    if(req.body.package == 'Brand'){
+        Car.find({}).sort({Brand: tempOrder}).exec( function(err, Cars){
+            if(err){
+                console.log(err);
+            }
+            else{
+            res.render('yourCars', {
+            title: 'APW Dealership',
+            title1: 'Find your dream-car with us!',
+            Cars: Cars
+                });
+            }
+        });
+    }else if(req.body.package == 'Package'){
+        Car.find({}).sort({Package: tempOrder}).exec( function(err, Cars){
+            if(err){
+                console.log(err);
+            }
+            else{
+            res.render('yourCars', {
+            title: 'APW Dealership',
+            title1: 'Find your dream-car with us!',
+            Cars: Cars
+                });
+            }
+        });
+    }else if(req.body.package == 'Price'){
+        Car.find({}).sort({Price: tempOrder}).exec( function(err, Cars){
+            if(err){
+                console.log(err);
+            }
+            else{
+            res.render('yourCars', {
+            title: 'APW Dealership',
+            title1: 'Find your dream-car with us!',
+            Cars: Cars
+                });
+            }           
+        });
+    }
+    else{
+        Car.find({}).sort({Price: tempOrder}).exec( function(err, Cars){
+            if(err){
+                console.log(err);
+            }
+            else{
+            res.render('yourCars', {
+            title: 'APW Dealership',
+            title1: 'Find your dream-car with us!',
+            Cars: Cars
+                });
+            }           
+        });
+    }
+   
 });
 
 //Get Single Car

@@ -3,6 +3,6 @@ extends Website
 block content 
     h3 Results: 
         ul.list-group 
-        each car, i in Cars
+        each cars, i in Cars
             li.list-group-item
-            a(href="/Create-A-Car/yourCars/"+ car._id)= car.Brand
+            a(href="/Create-A-Car/yourCars/"+ cars._id)= cars.Brand

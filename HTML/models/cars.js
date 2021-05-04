@@ -19,7 +19,7 @@ let carsSchema = new Schema({
         required: false
     },
     Price:{
-        type: Number,
+        type: String,
         required: true
     },
     Brand:{

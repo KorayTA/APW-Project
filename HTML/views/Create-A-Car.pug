@@ -4,70 +4,27 @@ block content
   h2 #{title3}
   h3 #{title4} #{title5} #{title6}
   
-    form(method = 'POST', action = '/Create-A-Car')
-      br
-      |     Car brand:
-      select(name='brand')
-        option(value= '') None
-        option(value='Ford')  Ford
-        option(value='BMW')  BMW
-        option(value='Toyota')  Toyota
-        option(value='Lincoln')  Lincoln
-        option(value='Subaru')  Subaru
-      br
-      br
-      |     Type:
-      select(name='type')
-        option(value= '') None
-        option(value='Sedan')  Sedan
-        option(value='Van')  Van
-        option(value='Truck')  Truck
-        option(value='Convertible')  Convertible
-        option(value='Coupe')  Coupe
-      br
+    form(method = 'POST', action = '/Create-A-Car/yourCars')
       br
       fieldset
-        legend  Package
-        input#packageStandard(type='radio' name='package' value='standard')
-        label(for='packageStandard')  Standard
+        legend  How would you like to Sort the Cars?
+        input#packageStandard(type='radio' name='package' value='Price')
+        label(for='packageStandard')  Price
         br
-        input#packageSport(type='radio' name='package' value='sport')
-        label(for='packageSport')  Sport
+        input#packageSport(type='radio' name='package' value='Package')
+        label(for='packageSport')  Package
         br
-        input#packageLimited(type='radio' name='package' value='limited')
-        label(for='packageLimited')  Limited
+        input#packageLimited(type='radio' name='package' value='Brand')
+        label(for='packageLimited')  Brand
         br
       br
-      |     Interior color:
-      select(name='intColor')
-        option(value= '') None
-        option(value='Grey') Grey
-        option(value='Black')  Black
-        option(value='White')  White
-        option(value='Tan')  Tan
-      br
-      br
-      |     Exterior color:
-      select(name='extColor')
-        option(value= '') None
-        option(value='Red')  Red
-        option(value='Orange')  Orange
-        option(value='Yellow')  Yellow
-        option(value='Green')  Green
-        option(value='Blue')  Blue
-        option(value='Purple')  Purple
-        option(value='Black')  Black
-        option(value='White')  White
-        option(value='Pink')  Pink
-        option(value='Silver')  Silver
-        option(value='Brown')  Brown
-        option(value='Gold')  Gold
-        option(value='Tan')  Tan
-      br
-      br
-      |     Your Maximum price: 
-      input(type='number' name='startPrice' min='10000' max='100000' step='100')
-      br
-      br
+      fieldset 
+        legend Choose Order (Decending or Acending)
+        input#orderAcending(type='radio' name='order' value='Acending')
+        label(for='orderAcending') Acending 
+        br
+        input#orderDecending(type='radio' name='order' value='Decending')
+        label(for='orderDecending') Decending 
+        br
       input.btn.btn-primary(type='submit', value='Search')
         
