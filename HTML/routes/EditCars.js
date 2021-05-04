@@ -71,19 +71,6 @@ router.post('/AddCar', function(req,res){
     }
 });
 
-//Add remove car post
-router.post('/RemoveCar', function(req,res){
-    if(req.body.Vin == ''){
-        req.flash('danger', 'Please Fill Out All Fields');
-        res.redirect('/EditCars');
-    }else{
-        req.flash('success', 'Car Removed');
-        const tempVin = req.body.Vin;
-        console.log(tempVin);
-        Cars.remove({"Vin": tempVin})
-        res.redirect('/EditCars');
-    }
-});
 
 
 
