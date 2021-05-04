@@ -1,4 +1,5 @@
 # AdvJavaScriptFINAL-master
+To start website navigate to HTML folder and type 'node app.js' into cmd/bash
 
 Website for a fake car dealership that allows user registration and login.  Login can tell whether or not a user is a staff member, and if user is a staff member,
 they will be allowed to use the Edit Cars tab.  The Edit Cars tab allows a Staff member to add a car to the DataBase.  To add a car to the database, the staff member
