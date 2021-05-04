@@ -5,4 +5,4 @@ block content
         ul.list-group 
         each cars, i in Cars
             li.list-group-item
-            a(href="/Create-A-Car/yourCars/"+ cars._id)= cars.Brand
+            a(href="/Create-A-Car/yourCars/"+ cars._id)= 'BRAND: ' + cars.Brand + ' PACKAGE: ' + cars.Package + ' PRICE: $' + cars.Price

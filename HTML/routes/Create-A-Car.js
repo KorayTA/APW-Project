@@ -30,7 +30,9 @@ router.get('/yourCars', function(req, res){
 //Get Cars from DB
 router.post('/yourCars', function(req, res) {
     var tempOrder;
+    var sortPresent = cars.Brand;
     if(req.body.order == 'Acending'){
+        
         tempOrder = 1;
     }else if(req.body.order == 'Decending'){
         tempOrder = -1;
