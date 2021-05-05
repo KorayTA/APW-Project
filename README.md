@@ -9,6 +9,8 @@ in either ascending or descending order.  After sorting the collection of cars, 
 car.  Throughout the website, there are alert buttons that will pop up if the user does something that they aren't supposed to do (Ex. try to add their own car to the collection
 without being a staff member).
 
+Once cloning the repository, run "mongorestore" to obtain the database called "FinalDB"
+
 
 
 Koray Akcabal - Create-A-Car.js, createAccount.js, app.js, MongoDB
@@ -17,3 +19,7 @@ Wesley Erd - Website.pug, EditCars.pug, message.pug, createAccount.js, EditCars.
 
 Koray Akcabal, Richard Shinnick, and Wesley Erd have equally worked on every major file in this project so it was very difficult to give credit 
 to each individual file because each person mentioned has put in an equal amount of work.
+
+Things that we wanted to include but did not have enough time:
+    1. Function to remove a car from the database
+    2. We wanted to sort the cars but the preferences that the user submitted. 

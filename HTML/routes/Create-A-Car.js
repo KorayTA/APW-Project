@@ -27,7 +27,7 @@ router.get('/yourCars', function(req, res){
     return;
 });
 
-//Get Cars from DB
+//Sorting the cars 
 router.post('/yourCars', function(req, res) {
     var tempOrder;
     if(req.body.order == 'Acending'){
