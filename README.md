@@ -23,3 +23,6 @@ to each individual file because each person mentioned has put in an equal amount
 Things that we wanted to include but did not have enough time:
     1. Function to remove a car from the database
     2. We wanted to sort the cars but the preferences that the user submitted. 
+    3. Spcific user accounts can save cars that they like
+    4. Adding more pictures
+    5. Password encryption
